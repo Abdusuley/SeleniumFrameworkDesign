@@ -1,64 +1,59 @@
 package abdulinstitute.pageobjects;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import abdulinstitute.AbstractComponents.AbstractComponent;
 
 public class ProductCatalogue extends AbstractComponent {
 
-	WebDriver driver;
+    private WebDriver driver;
 
-	public ProductCatalogue(WebDriver driver) {
-		// initialization
-		super(driver);
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+    @FindBy(css = ".features_items .col-sm-4")
+    private List<WebElement> products;
 
-	}
+    private By productsBy = By.cssSelector(".features_items .col-sm-4");
 
-	@FindBy(css = ".mb-3")
-	List<WebElement> products;
-	
-	@FindBy(css = ".ng-animating")
-	WebElement spinner;
+    public ProductCatalogue() {
+        super();
+    }
 
-	By productsBy = By.cssSelector(".mb-3");
-	By addToCart = By.cssSelector(".card-body button:last-of-type");
-	By toastMessage = By.cssSelector("#toast-container");
+    public List<WebElement> getProductList() {
+        waitForElementToAppear(productsBy);
+        return products;
+    }
 
-	public List<WebElement> getProductList() {
-		waitForElementToAppear(productsBy);
-		return products;
-	}
-	
-	public WebElement getProductByName(String productName)
-	{
-		WebElement prod =	getProductList().stream().filter(product->
-		product.findElement(By.cssSelector("b")).getText().equals(productName)).findFirst().orElse(null);
-		return prod;
-	}
-	
-	
-	public void addProductToCart(String productName) throws InterruptedException
-	{
-		WebElement prod = getProductByName(productName);
-		prod.findElement(addToCart).click();
-		waitForElementToAppear(toastMessage);
-		waitForElementToDisappear(spinner);
+    public WebElement getProductByName(String productName) {
+        return getProductList().stream()
+                .filter(product ->
+                        product.findElement(By.cssSelector(".productinfo p"))
+                               .getText()
+                               .equalsIgnoreCase(productName))
+                .findFirst()
+                .orElse(null);
+    }
 
+    public void addProductToCart(String productName) {
+        WebElement prod = getProductByName(productName);
+        if (prod == null) throw new RuntimeException("Product not found: " + productName);
 
-	}
-	
-	
-	
-	
-	
+        WebElement addToCartBtn = prod.findElement(By.cssSelector(".productinfo a.add-to-cart"));
 
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView({block:'center'});", addToCartBtn);
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(prod).perform();
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", addToCartBtn);
+
+        By continueShoppingBtn = By.cssSelector("button.close-modal");
+        waitForElementToAppear(continueShoppingBtn);
+        driver.findElement(continueShoppingBtn).click();
+    }
 }

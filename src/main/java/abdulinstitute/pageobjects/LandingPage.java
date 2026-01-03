@@ -8,70 +8,59 @@ import org.openqa.selenium.support.PageFactory;
 
 import abdulinstitute.AbstractComponents.AbstractComponent;
 
-public class LandingPage extends AbstractComponent{
+public class LandingPage extends AbstractComponent {
 
-	WebDriver driver;
-	
-	public LandingPage(WebDriver driver)
-	{
-		super(driver);
-		//initialization
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
-		
-	}
-		
-	//WebElement userEmails = driver.findElement(By.id("userEmail"));
-	//PageFactory
-	
-	@FindBy(id="userEmail")
-	WebElement userEmail;
-	
-	@FindBy(id="userPassword")
-	WebElement passwordEle;
-	
-	@FindBy(id="login")
-	WebElement submit;
-	
-	@FindBy(css="[class*='flyInOut']")
-	WebElement errorMessage;
+    private WebDriver driver;
 
-	
-	public ProductCatalogue loginApplication(String email,String password)
-	{
-		userEmail.sendKeys(email);
-		passwordEle.sendKeys(password);
-		submit.click();
-		ProductCatalogue productCatalogue = new ProductCatalogue(driver);
-		return productCatalogue;
-		
-		
-	}
-	
-	public String getErrorMessage()
-	{
-		waitForWebElementToAppear(errorMessage);
-		return errorMessage.getText();
-	}
-	
-	public void goTo()
-	{
-		driver.get("https://rahulshettyacademy.com/client");
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+    public LandingPage() {
+        super();
+  
+    }
 
-	
-	
-	
-	
-	
-	
-	
+    @FindBy(xpath = "//a[contains(text(), 'Signup / Login')]")
+    private WebElement signupLoginButton;
+
+    @FindBy(id = "userEmail")
+    private WebElement userEmail;
+
+    @FindBy(id = "userPassword")
+    private WebElement passwordEle;
+
+    @FindBy(id = "login")
+    private WebElement submit;
+
+    @FindBy(css = "[class*='flyInOut']")
+    private WebElement errorMessage;
+
+    // Click "Signup / Login" button
+    public void clickSignupLogin() {
+        waitForWebElementToAppear(signupLoginButton);
+        signupLoginButton.click();
+    }
+
+    // Login method, returns ProductCatalogue
+    public ProductCatalogue loginApplication(String email, String password) {
+        waitForWebElementToAppear(userEmail);
+        userEmail.clear();
+        userEmail.sendKeys(email);
+
+        passwordEle.clear();
+        passwordEle.sendKeys(password);
+
+        submit.click();
+
+        // Return ProductCatalogue page object with the same driver
+        return new ProductCatalogue();
+    }
+
+    // Get error message from failed login
+    public String getErrorMessage() {
+        waitForWebElementToAppear(errorMessage);
+        return errorMessage.getText();
+    }
+
+    // Navigate to base URL
+    public void goTo() {
+        driver.get("http://automationexercise.com");
+    }
 }

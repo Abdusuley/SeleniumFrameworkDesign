@@ -4,6 +4,17 @@
   <listeners>
     <listener class-name="abdulinstitute.TestComponents.Listeners"/>
   </listeners>
+  <test thread-count="5" parallel="tests" name="Fill Out New Account Info Form Test(failed)">
+    <classes>
+      <class name="abdulinstitute.tests.FillOutNewAccountInfoFormTest">
+        <methods>
+          <include name="launchApplication"/>
+          <include name="submitOrder" invocation-numbers="0"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- abdulinstitute.tests.FillOutNewAccountInfoFormTest -->
+    </classes>
+  </test> <!-- Fill Out New Account Info Form Test(failed) -->
   <test thread-count="5" parallel="tests" name="Error Validations Test(failed)">
     <classes>
       <class name="abdulinstitute.tests.ErrorValidationsTest">
@@ -16,15 +27,4 @@
       </class> <!-- abdulinstitute.tests.ErrorValidationsTest -->
     </classes>
   </test> <!-- Error Validations Test(failed) -->
-  <test thread-count="5" parallel="tests" name="Submit Order Test(failed)">
-    <classes>
-      <class name="abdulinstitute.tests.SubmitOrderTest">
-        <methods>
-          <include name="launchApplication"/>
-          <include name="submitOrder"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- abdulinstitute.tests.SubmitOrderTest -->
-    </classes>
-  </test> <!-- Submit Order Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

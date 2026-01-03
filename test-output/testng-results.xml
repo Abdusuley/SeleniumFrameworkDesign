@@ -1,85 +1,459 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results retried="2" ignored="0" total="9" passed="4" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-25T13:58:55 PST" name="Suite" finished-at="2025-12-25T13:59:19 PST" duration-ms="23605">
+  <suite started-at="2026-01-02T16:13:33 PST" name="Suite" finished-at="2026-01-02T16:15:14 PST" duration-ms="101279">
     <groups>
+      <group name="Signup">
+        <method signature="SignupTest.testSuccessfulSignupRedirection()[pri:0, instance:abdulinstitute.tests.SignupTest@7f8a9499]" name="testSuccessfulSignupRedirection" class="abdulinstitute.tests.SignupTest"/>
+      </group> <!-- Signup -->
       <group name="ErrorHandling">
-        <method signature="ErrorValidationsTest.LoginErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@4bbf6d0e]" name="LoginErrorValidation" class="abdulinstitute.tests.ErrorValidationsTest"/>
+        <method signature="ErrorValidationsTest.LoginErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" name="LoginErrorValidation" class="abdulinstitute.tests.ErrorValidationsTest"/>
+        <method signature="ErrorValidationsTest.ProductErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" name="ProductErrorValidation" class="abdulinstitute.tests.ErrorValidationsTest"/>
+        <method signature="ErrorValidationsTest.loginErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" name="loginErrorValidation" class="abdulinstitute.tests.ErrorValidationsTest"/>
       </group> <!-- ErrorHandling -->
       <group name="Purchase">
-        <method signature="SubmitOrderTest.submitOrder(java.util.HashMap)[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@24105dc5]" name="submitOrder" class="abdulinstitute.tests.SubmitOrderTest"/>
+        <method signature="SubmitOrderTest.submitOrder(java.util.HashMap)[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@536dbea0]" name="submitOrder" class="abdulinstitute.tests.SubmitOrderTest"/>
+        <method signature="LoginPageTest.loginTest(java.util.HashMap)[pri:0, instance:abdulinstitute.tests.LoginPageTest@4d518b32]" name="loginTest" class="abdulinstitute.tests.LoginPageTest"/>
+        <method signature="FillOutNewAccountInfoFormTest.submitOrder(java.util.HashMap)[pri:0, instance:abdulinstitute.tests.FillOutNewAccountInfoFormTest@20d7d6fb]" name="submitOrder" class="abdulinstitute.tests.FillOutNewAccountInfoFormTest"/>
       </group> <!-- Purchase -->
     </groups>
-    <test started-at="2025-12-25T13:58:55 PST" name="Error Validations Test" finished-at="2025-12-25T13:59:12 PST" duration-ms="17012">
-      <class name="abdulinstitute.tests.ErrorValidationsTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@4bbf6d0e]" started-at="2025-12-25T13:58:55 PST" name="launchApplication" finished-at="2025-12-25T13:59:02 PST" duration-ms="7086" status="PASS">
+    <test started-at="2026-01-02T16:13:33 PST" name="Fill Out New Account Info Form Test" finished-at="2026-01-02T16:13:47 PST" duration-ms="13598">
+      <class name="abdulinstitute.tests.FillOutNewAccountInfoFormTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.FillOutNewAccountInfoFormTest@20d7d6fb]" started-at="2026-01-02T16:13:34 PST" name="launchApplication" finished-at="2026-01-02T16:13:37 PST" duration-ms="3691" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="LoginErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@4bbf6d0e]" started-at="2025-12-25T13:59:02 PST" name="LoginErrorValidation" finished-at="2025-12-25T13:59:03 PST" duration-ms="971" status="PASS">
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:abdulinstitute.tests.FillOutNewAccountInfoFormTest@20d7d6fb]" started-at="2026-01-02T16:13:37 PST" name="submitOrder" data-provider="getData" finished-at="2026-01-02T16:13:44 PST" duration-ms="7243" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{password=Deen2024, product=Blue Top, email=suleiman.abdul.salih@gmail.com}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[Keys to send should be a not null CharSequence]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
+at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:96)
+at abdulinstitute.pageobjects.SignupPage.enterSignupDetails(SignupPage.java:25)
+at abdulinstitute.tests.FillOutNewAccountInfoFormTest.submitOrder(FillOutNewAccountInfoFormTest.java:29)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LoginErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@4bbf6d0e]" started-at="2025-12-25T13:59:03 PST" name="tearDown" finished-at="2025-12-25T13:59:04 PST" duration-ms="277" status="PASS">
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.FillOutNewAccountInfoFormTest@20d7d6fb]" started-at="2026-01-02T16:13:45 PST" name="tearDown" finished-at="2026-01-02T16:13:47 PST" duration-ms="1725" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@4bbf6d0e]" started-at="2025-12-25T13:59:04 PST" name="launchApplication" finished-at="2025-12-25T13:59:08 PST" duration-ms="4727" status="PASS">
+      </class> <!-- abdulinstitute.tests.FillOutNewAccountInfoFormTest -->
+    </test> <!-- Fill Out New Account Info Form Test -->
+    <test started-at="2026-01-02T16:13:33 PST" name="Signup Test" finished-at="2026-01-02T16:13:47 PST" duration-ms="13756">
+      <class name="abdulinstitute.tests.SignupTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.SignupTest@7f8a9499]" started-at="2026-01-02T16:13:33 PST" name="launchApplication" finished-at="2026-01-02T16:13:37 PST" duration-ms="4038" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="ProductErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@4bbf6d0e]" started-at="2025-12-25T13:59:08 PST" name="ProductErrorValidation" finished-at="2025-12-25T13:59:12 PST" duration-ms="3611" status="PASS">
+        <test-method signature="testSuccessfulSignupRedirection()[pri:0, instance:abdulinstitute.tests.SignupTest@7f8a9499]" started-at="2026-01-02T16:13:37 PST" name="testSuccessfulSignupRedirection" finished-at="2026-01-02T16:13:45 PST" duration-ms="7917" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ProductErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@4bbf6d0e]" started-at="2025-12-25T13:59:12 PST" name="tearDown" finished-at="2025-12-25T13:59:12 PST" duration-ms="238" status="PASS">
+        </test-method> <!-- testSuccessfulSignupRedirection -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.SignupTest@7f8a9499]" started-at="2026-01-02T16:13:45 PST" name="tearDown" finished-at="2026-01-02T16:13:47 PST" duration-ms="1709" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- abdulinstitute.tests.ErrorValidationsTest -->
-    </test> <!-- Error Validations Test -->
-    <test started-at="2025-12-25T13:58:55 PST" name="Submit Order Test" finished-at="2025-12-25T13:59:19 PST" duration-ms="23605">
+      </class> <!-- abdulinstitute.tests.SignupTest -->
+    </test> <!-- Signup Test -->
+    <test started-at="2026-01-02T16:13:33 PST" name="Submit Order Test" finished-at="2026-01-02T16:13:56 PST" duration-ms="23314">
       <class name="abdulinstitute.tests.SubmitOrderTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@24105dc5]" started-at="2025-12-25T13:58:56 PST" name="launchApplication" finished-at="2025-12-25T13:59:02 PST" duration-ms="6659" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@536dbea0]" started-at="2026-01-02T16:13:34 PST" name="launchApplication" finished-at="2026-01-02T16:13:40 PST" duration-ms="6475" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@24105dc5]" started-at="2025-12-25T13:59:02 PST" name="submitOrder" data-provider="getData" finished-at="2025-12-25T13:59:07 PST" duration-ms="5210" status="PASS">
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@536dbea0]" started-at="2026-01-02T16:13:40 PST" name="submitOrder" data-provider="getData" finished-at="2026-01-02T16:13:48 PST" duration-ms="7646" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{password=Deen2024, product=ZARA COAT 3, email=abdul.salih@outlook.com}]]>
+                <![CDATA[{password=Puppy?2020, product=Blue Top, email=abdul.salih@outlook.com}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@24105dc5]" started-at="2025-12-25T13:59:07 PST" name="tearDown" finished-at="2025-12-25T13:59:08 PST" duration-ms="237" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@536dbea0]" started-at="2026-01-02T16:13:48 PST" name="tearDown" finished-at="2026-01-02T16:13:48 PST" duration-ms="601" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@24105dc5]" started-at="2025-12-25T13:59:08 PST" name="launchApplication" finished-at="2025-12-25T13:59:13 PST" duration-ms="5399" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@536dbea0]" started-at="2026-01-02T16:13:48 PST" name="launchApplication" finished-at="2026-01-02T16:13:52 PST" duration-ms="3709" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@24105dc5]" started-at="2025-12-25T13:59:13 PST" name="submitOrder" data-provider="getData" finished-at="2025-12-25T13:59:19 PST" duration-ms="5493" status="PASS">
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@536dbea0]" started-at="2026-01-02T16:13:52 PST" name="submitOrder" data-provider="getData" finished-at="2026-01-02T16:13:56 PST" duration-ms="4228" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{password=Maito2016, product=ADIDAS ORIGINAL, email=abdusuley01@gmail.com}]]>
+                <![CDATA[{password=Kitten?3939, product=Men Tshirt, email=abdusuley01@gmail.com}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@24105dc5]" started-at="2025-12-25T13:59:19 PST" name="tearDown" finished-at="2025-12-25T13:59:19 PST" duration-ms="223" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.SubmitOrderTest@536dbea0]" started-at="2026-01-02T16:13:56 PST" name="tearDown" finished-at="2026-01-02T16:13:56 PST" duration-ms="256" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- abdulinstitute.tests.SubmitOrderTest -->
     </test> <!-- Submit Order Test -->
+    <test started-at="2026-01-02T16:13:33 PST" name="Error Validations Test" finished-at="2026-01-02T16:15:14 PST" duration-ms="101279">
+      <class name="abdulinstitute.tests.ErrorValidationsTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:13:33 PST" name="launchApplication" finished-at="2026-01-02T16:13:37 PST" duration-ms="4159" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method retried="true" signature="LoginErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:13:37 PST" name="LoginErrorValidation" finished-at="2026-01-02T16:14:00 PST" duration-ms="22247" status="SKIP">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: userEmail' (tried for 5 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: userEmail' (tried for 5 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at abdulinstitute.AbstractComponents.AbstractComponent.waitForWebElementToAppear(AbstractComponent.java:34)
+at abdulinstitute.pageobjects.LandingPage.loginApplication(LandingPage.java:44)
+at abdulinstitute.tests.ErrorValidationsTest.LoginErrorValidation(ErrorValidationsTest.java:21)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#userEmail"}
+  (Session info: chrome=143.0.7499.170)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fdc441127701c8743eaabcd194eb4069, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\Abdul\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57211}, goog:processID: 54536, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57211/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: fdc441127701c8743eaabcd194eb4069
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy16.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 23 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:14:00 PST" name="tearDown" finished-at="2026-01-02T16:14:00 PST" duration-ms="257" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:14:00 PST" name="launchApplication" finished-at="2026-01-02T16:14:02 PST" duration-ms="2368" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="LoginErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:14:02 PST" name="LoginErrorValidation" finished-at="2026-01-02T16:14:22 PST" duration-ms="20057" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: userEmail' (tried for 5 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: userEmail' (tried for 5 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at abdulinstitute.AbstractComponents.AbstractComponent.waitForWebElementToAppear(AbstractComponent.java:34)
+at abdulinstitute.pageobjects.LandingPage.loginApplication(LandingPage.java:44)
+at abdulinstitute.tests.ErrorValidationsTest.LoginErrorValidation(ErrorValidationsTest.java:21)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#userEmail"}
+  (Session info: chrome=143.0.7499.170)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c3dc7378bfa580d3b6350a9b9ea8eafb, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\Abdul\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53349}, goog:processID: 55232, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53349/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c3dc7378bfa580d3b6350a9b9ea8eafb
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy16.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 23 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:14:23 PST" name="tearDown" finished-at="2026-01-02T16:14:23 PST" duration-ms="338" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:14:23 PST" name="launchApplication" finished-at="2026-01-02T16:14:25 PST" duration-ms="2349" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method retried="true" signature="ProductErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:14:25 PST" name="ProductErrorValidation" finished-at="2026-01-02T16:14:45 PST" duration-ms="20141" status="SKIP">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: userEmail' (tried for 5 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: userEmail' (tried for 5 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at abdulinstitute.AbstractComponents.AbstractComponent.waitForWebElementToAppear(AbstractComponent.java:34)
+at abdulinstitute.pageobjects.LandingPage.loginApplication(LandingPage.java:44)
+at abdulinstitute.tests.ErrorValidationsTest.ProductErrorValidation(ErrorValidationsTest.java:55)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#userEmail"}
+  (Session info: chrome=143.0.7499.170)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [364ed23d85e2cd468051c706b74a7038, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\Abdul\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61254}, goog:processID: 28108, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61254/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 364ed23d85e2cd468051c706b74a7038
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy16.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 23 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ProductErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:14:45 PST" name="tearDown" finished-at="2026-01-02T16:14:46 PST" duration-ms="264" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:14:46 PST" name="launchApplication" finished-at="2026-01-02T16:14:48 PST" duration-ms="2518" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="ProductErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:14:48 PST" name="ProductErrorValidation" finished-at="2026-01-02T16:15:08 PST" duration-ms="20099" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: userEmail' (tried for 5 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: userEmail' (tried for 5 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at abdulinstitute.AbstractComponents.AbstractComponent.waitForWebElementToAppear(AbstractComponent.java:34)
+at abdulinstitute.pageobjects.LandingPage.loginApplication(LandingPage.java:44)
+at abdulinstitute.tests.ErrorValidationsTest.ProductErrorValidation(ErrorValidationsTest.java:55)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#userEmail"}
+  (Session info: chrome=143.0.7499.170)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b7f5a87b6a5e6cb50f7bc2745c2818bb, findElement {using=id, value=userEmail}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\Abdul\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64558}, goog:processID: 36916, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64558/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b7f5a87b6a5e6cb50f7bc2745c2818bb
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:66)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy16.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 23 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ProductErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:15:09 PST" name="tearDown" finished-at="2026-01-02T16:15:09 PST" duration-ms="262" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:15:09 PST" name="launchApplication" finished-at="2026-01-02T16:15:11 PST" duration-ms="2387" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="loginErrorValidation()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:15:11 PST" name="loginErrorValidation" finished-at="2026-01-02T16:15:14 PST" duration-ms="2860" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:abdulinstitute.tests.ErrorValidationsTest@7a3793c7]" started-at="2026-01-02T16:15:14 PST" name="tearDown" finished-at="2026-01-02T16:15:14 PST" duration-ms="341" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- abdulinstitute.tests.ErrorValidationsTest -->
+    </test> <!-- Error Validations Test -->
   </suite> <!-- Suite -->
 </testng-results>

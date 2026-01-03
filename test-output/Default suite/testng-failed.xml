@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="abdulinstitute.tests.ErrorValidationsTest">
+      <class name="abdulinstitute.tests.SubmitOrderTest">
         <methods>
-          <include name="tearDown"/>
-          <include name="ProductErrorValidation"/>
           <include name="launchApplication"/>
+          <include name="submitOrder" invocation-numbers="1"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- abdulinstitute.tests.ErrorValidationsTest -->
+      </class> <!-- abdulinstitute.tests.SubmitOrderTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

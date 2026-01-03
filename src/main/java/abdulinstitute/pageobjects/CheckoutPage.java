@@ -7,52 +7,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import abdulinstitute.AbstractComponents.AbstractComponent;
 
 public class CheckoutPage extends AbstractComponent {
 
-	WebDriver driver;
+    private WebDriver driver;
 
-	public CheckoutPage(WebDriver driver) {
-		super(driver);
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+    @FindBy(css = ".action__submit")
+    private WebElement submit;
 
-	}
+    @FindBy(css = "[placeholder='Select Country']")
+    private WebElement countryInput;
 
-	@FindBy(css = ".action__submit")
-	 private WebElement submit;
+    public CheckoutPage() {
+        super();
+    }
 
-	@FindBy(css = "[placeholder='Select Country']")
-	private WebElement country;
+    public void selectCountry(String countryName) {
+        Actions actions = new Actions(driver);
+        actions.sendKeys(countryInput, countryName).build().perform();
+        waitForElementToAppear(By.cssSelector(".ta-results"));
+        driver.findElement(By.xpath("//button[text()='" + countryName + "']")).click();
+    }
 
-	@FindBy(xpath = "(//button[contains(@class,'ta-item')])[2]")
-	private WebElement selectCountry;
-
-	private By results = By.cssSelector(".ta-results");
-
-	public void selectCountry(String countryName) {
-		Actions a = new Actions(driver);
-		a.sendKeys(country, countryName).build().perform();
-		waitForElementToAppear(By.cssSelector(".ta-results"));
-		selectCountry.click();
-	}
-	
-	public ConfirmationPage submitOrder()
-	{
-
-
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", submit);
-		js.executeScript("arguments[0].click();", submit);
-
-		
-
-		return new ConfirmationPage(driver);
-		
-		
-	}
-
+    public ConfirmationPage submitOrder() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submit);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submit);
+        return new ConfirmationPage();
+    }
 }

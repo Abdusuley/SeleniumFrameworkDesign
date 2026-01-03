@@ -22,7 +22,7 @@ public class ErrorValidationsTest extends BaseTest {
 	public void LoginErrorValidation() throws IOException, InterruptedException {
 
 	
-		landingPage.loginApplication("anshika@gmail.com", "Iamki000");
+		landingPage.loginApplication("abdul.salih@outlook.com", "Deen2024");
 		Assert.assertEquals("Incorrect email or password.", landingPage.getErrorMessage());
 
 	}
@@ -33,7 +33,7 @@ public class ErrorValidationsTest extends BaseTest {
 	{
 
 		String productName = "ZARA COAT 3";
-		ProductCatalogue productCatalogue = landingPage.loginApplication("abdul.salih"outlook.com", "Deen2024");
+		ProductCatalogue productCatalogue = landingPage.loginApplication("abdul.salih@outlook.com", "Deen2024");
 		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(productName);
 		CartPage cartPage = productCatalogue.goToCartPage();

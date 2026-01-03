@@ -12,58 +12,49 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import abdulinstitute.pageobjects.CartPage;
 import abdulinstitute.pageobjects.OrderPage;
+import abdulinstitute.utils.DriverManager;
 
-public class AbstractComponent {
-	
-	WebDriver driver;
+public abstract class AbstractComponent {
 
-	public AbstractComponent(WebDriver driver) {
-		
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		
-	}
-	
-	@FindBy(css = "[routerlink*='cart']")
-	WebElement cartHeader;
-	
-	@FindBy(css = "[routerlink*='myorders']")
-	WebElement orderHeader;
+    protected WebDriver getDriver() {
+        return DriverManager.getDriver();
+    }
 
+    protected AbstractComponent() {
+        PageFactory.initElements(getDriver(), this);
+    }
 
-	public void waitForElementToAppear(By findBy) {
+    @FindBy(css = "[routerlink*='cart']")
+    private WebElement cartHeader;
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
+    @FindBy(css = "[routerlink*='myorders']")
+    private WebElement orderHeader;
 
-	}
-	
-	public void waitForWebElementToAppear(WebElement findBy) {
+    // Wait until a WebElement is visible
+    public void waitForWebElementToAppear(WebElement element) {
+        new WebDriverWait(getDriver(), Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOf(element));
+    }
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.visibilityOf(findBy));
+    // Wait until element located by By is visible
+    public void waitForElementToAppear(By locator) {
+        new WebDriverWait(getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 
-	}
-	
-	public CartPage goToCartPage()
-	{
-		cartHeader.click();
-		CartPage cartPage = new CartPage(driver);
-		return cartPage;
-	}
-	
-	public OrderPage goToOrdersPage()
-	{
-		orderHeader.click();
-		OrderPage orderPage = new OrderPage(driver);
-		return orderPage;
-	}
-	public void waitForElementToDisappear(WebElement ele) throws InterruptedException
-	{
-		Thread.sleep(1000);
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-//		wait.until(ExpectedConditions.invisibilityOf(ele));
+    // Wait until element disappears
+    public void waitForElementToDisappear(WebElement element) {
+        new WebDriverWait(getDriver(), Duration.ofSeconds(5))
+                .until(ExpectedConditions.invisibilityOf(element));
+    }
 
-	}
+    public CartPage goToCartPage() {
+        cartHeader.click();
+        return new CartPage();   // ✅ NO driver passed
+    }
 
+    public OrderPage goToOrdersPage() {
+        orderHeader.click();
+        return new OrderPage();  // ✅ NO driver passed
+    }
 }

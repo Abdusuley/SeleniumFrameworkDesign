@@ -18,6 +18,22 @@
       <class name="abdulinstitute.tests.ErrorValidationsTest"/>
     </classes>
   </test> <!-- Test -->
+  <test thread-count="5" name="Login Page Testt">
+    <classes>
+      <class name="abdulinstitute.tests.LoginPageTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test thread-count="5" name="Fill Out New Account Info Form Test">
+    <classes>
+      <class name="abdulinstitute.tests.FillOutNewAccountInfoFormTest"/>
+    </classes>
+  </test> <!-- Test -->
+   <test thread-count="5" name="Signup Test">
+    <classes>
+      <class name="abdulinstitute.tests.SignupTest"/>
+    </classes>
+  </test> <!-- Test -->
 </suite> <!-- Suite -->
 
 
